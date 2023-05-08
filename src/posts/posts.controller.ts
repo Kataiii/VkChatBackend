@@ -9,14 +9,14 @@ import { PostsService } from './posts.service';
 export class PostsController {
     constructor(private postsService: PostsService){}
 
-    @ApiOperation({summary: 'Create univercity'})
+    @ApiOperation({summary: 'Create post'})
     @ApiResponse({ status: 200, type: PostModel})
     @Post()
     create(@Body() dto : CreatePostDto){
         return this.postsService.create(dto);
     }
 
-    @ApiOperation({summary: 'Get all univercities'})
+    @ApiOperation({summary: 'Get all posts'})
     @ApiResponse({status: 200, type: [PostModel]})
     @Get()
     getAll(){

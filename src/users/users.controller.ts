@@ -18,7 +18,7 @@ export class UsersController {
         return users;
     }
 
-    @ApiOperation({summary: 'Create account'})
+    @ApiOperation({summary: 'Create user'})
     @ApiResponse({ status: 200, type: User})
     @Post()
     create(@Body() userDto: CreateUserDto){

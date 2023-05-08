@@ -5,15 +5,15 @@ import { Univercity } from './universities.model';
 
 @Injectable()
 export class UniversitiesService {
-    constructor(@InjectModel(Univercity) private cityRepository: typeof Univercity){}
+    constructor(@InjectModel(Univercity) private univercitiesRepository: typeof Univercity){}
 
     async getAllCities(){
-        const cities = await this.cityRepository.findAll();
-        return cities;
+        const univercities = await this.univercitiesRepository.findAll();
+        return univercities;
     }
 
     async create(dto: CreateUnivercityDto){
-        const city = await this.cityRepository.create(dto);
-        return city;
+        const univercity = await this.univercitiesRepository.create(dto);
+        return univercity;
     }
 }

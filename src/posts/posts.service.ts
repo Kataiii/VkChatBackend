@@ -13,7 +13,7 @@ export class PostsService {
     }
 
     async create(dto: CreatePostDto){
-        const city = await this.postsRepository.create(dto);
-        return city;
+        const post = await this.postsRepository.create(dto);
+        return post;
     }
 }

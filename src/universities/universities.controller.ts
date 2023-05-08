@@ -7,19 +7,19 @@ import { UniversitiesService } from './universities.service';
 @ApiTags('Universities')
 @Controller('universities')
 export class UniversitiesController {
-    constructor(private citiesService : UniversitiesService){}
+    constructor(private univercitiesService : UniversitiesService){}
 
     @ApiOperation({summary: 'Create univercity'})
     @ApiResponse({ status: 200, type: Univercity})
     @Post()
     create(@Body() dto : CreateUnivercityDto){
-        return this.citiesService.create(dto);
+        return this.univercitiesService.create(dto);
     }
 
     @ApiOperation({summary: 'Get all univercities'})
     @ApiResponse({status: 200, type: [Univercity]})
     @Get()
     getAll(){
-        return this.citiesService.getAllCities();
+        return this.univercitiesService.getAllCities();
     }
 }

@@ -10,6 +10,10 @@ import { User } from "./users/users.model";
 import { UserFriends } from "./user-friends/user-friends.model";
 import { PostsModule } from './posts/posts.module';
 import { PostModel } from "./posts/posts.model";
+import { ChatsModule } from './chats/chats.module';
+import { MessagesModule } from './chats/messages/messages.module';
+import { Chat } from "./chats/chats.model";
+import { Message } from "./chats/messages/messages.model";
 
 
 @Module({
@@ -31,7 +35,9 @@ import { PostModel } from "./posts/posts.model";
                 Univercity,
                 User,
                 UserFriends,
-                PostModel
+                PostModel,
+                Chat,
+                Message
             ],
             autoLoadModels: true
           }),
@@ -39,6 +45,8 @@ import { PostModel } from "./posts/posts.model";
         CitiesModule,
         UniversitiesModule,
         PostsModule,
+        ChatsModule,
+        MessagesModule,
     ]
 })
 export class AppModule{
