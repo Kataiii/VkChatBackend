@@ -8,6 +8,8 @@ import { City } from "./cities/cities.model";
 import { Univercity } from "./universities/universities.model";
 import { User } from "./users/users.model";
 import { UserFriends } from "./user-friends/user-friends.model";
+import { PostsModule } from './posts/posts.module';
+import { PostModel } from "./posts/posts.model";
 
 
 @Module({
@@ -28,13 +30,15 @@ import { UserFriends } from "./user-friends/user-friends.model";
                 City,
                 Univercity,
                 User,
-                UserFriends
+                UserFriends,
+                PostModel
             ],
             autoLoadModels: true
           }),
         UsersModule,
         CitiesModule,
         UniversitiesModule,
+        PostsModule,
     ]
 })
 export class AppModule{
