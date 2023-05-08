@@ -4,6 +4,10 @@ import { SequelizeModule } from "@nestjs/sequelize";
 import { UsersModule } from './users/users.module';
 import { CitiesModule } from './cities/cities.module';
 import { UniversitiesModule } from './universities/universities.module';
+import { City } from "./cities/cities.model";
+import { Univercity } from "./universities/universities.model";
+import { User } from "./users/users.model";
+import { UserFriends } from "./user-friends/user-friends.model";
 
 
 @Module({
@@ -20,7 +24,12 @@ import { UniversitiesModule } from './universities/universities.module';
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DB,
-            models: [],
+            models: [
+                City,
+                Univercity,
+                User,
+                UserFriends
+            ],
             autoLoadModels: true
           }),
         UsersModule,

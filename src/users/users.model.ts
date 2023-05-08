@@ -1,6 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Model, Table, Column, DataType, ForeignKey, BelongsToMany } from "sequelize-typescript";
 import { City } from "src/cities/cities.model";
+import { Univercity } from "src/universities/universities.model";
+import { UserFriends } from "src/user-friends/user-friends.model";
 
 interface UserCreationAttrs{
     login: string;
@@ -42,7 +44,15 @@ export class User extends Model<User, UserCreationAttrs>{
     @Column({type: DataType.INTEGER})
     city_id: number;
 
+    @ApiProperty({example: 1, description: 'Идентификатор вуза', required: false})
+    @ForeignKey(() => Univercity)
+    @Column({type: DataType.INTEGER})
+    univercity_id: number;
+
     @ApiProperty({example: 'image.png', description: 'Строка загрузки картинки', required: false})
     @Column({type: DataType.STRING, allowNull: true})
     profile_picture: string;
+
+    @BelongsToMany(() => User, () => UserFriends)
+    friends: User[];
 }
