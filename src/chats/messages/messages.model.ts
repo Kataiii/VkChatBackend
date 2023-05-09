@@ -10,6 +10,7 @@ interface CreateMessageAttrs{
     content: string;
 }
 
+@Table({tableName: 'messages'})
 export class Message extends Model<Message, CreateMessageAttrs>{
     @ApiProperty({example: 1, description: 'Уникальный идентификатор', required: false})
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})

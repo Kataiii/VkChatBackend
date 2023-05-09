@@ -14,6 +14,9 @@ import { ChatsModule } from './chats/chats.module';
 import { MessagesModule } from './chats/messages/messages.module';
 import { Chat } from "./chats/chats.model";
 import { Message } from "./chats/messages/messages.model";
+import { AuthModule } from './auth/auth.module';
+import { TokensModule } from './auth/tokens/tokens.module';
+import { Token } from "./auth/tokens/tokens.model";
 
 
 @Module({
@@ -37,7 +40,8 @@ import { Message } from "./chats/messages/messages.model";
                 UserFriends,
                 PostModel,
                 Chat,
-                Message
+                Message,
+                Token
             ],
             autoLoadModels: true
           }),
@@ -47,6 +51,8 @@ import { Message } from "./chats/messages/messages.model";
         PostsModule,
         ChatsModule,
         MessagesModule,
+        AuthModule,
+        TokensModule,
     ]
 })
 export class AppModule{

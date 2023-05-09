@@ -4,6 +4,7 @@ import { SwaggerModule } from "@nestjs/swagger/dist";
 import { AppModule } from "./app.module";
 // import { JwtAuthGuard } from "./auth/guards/jwt-auth.guard";
 import * as cookieParser from 'cookie-parser';
+import { JwtAuthGuard } from "./auth/guards/jwt-auth.guards";
 
 async function start() {
     const PORT = process.env.PORT || 5000;
@@ -18,9 +19,9 @@ async function start() {
     const document = SwaggerModule.createDocument(app, config)
     SwaggerModule.setup('/api/docs', app, document)
 
-    // // const reflector = app.get(Reflector);
-    // // app.useGlobalGuards(new JwtAuthGuard( null ,reflector));
-    // app.use(cookieParser());
+    const reflector = app.get(Reflector);
+    app.useGlobalGuards(new JwtAuthGuard( null ,reflector));
+    app.use(cookieParser());
     await app.listen(PORT, () => console.log(`Server start on port = ${PORT}`))
 }
 
